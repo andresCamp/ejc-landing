@@ -30,47 +30,43 @@ export interface Project  {
     title: string;
     subtitle: string;
     slug: string;
-    portraitCover: string;
-    tileCover: string;
+    projectYear: string;
+    projectType: string;
     projectDescription1: string;
-    squareFeature1: string;
-    portraitFeature1: string;
-    portraitFeature2: string;
-    landscapeFeature1: string;
-    squareFeature2: string;
     projectDescription2: string;
     projectLocation: string;
-    projectStatus: string;
-    projectYear: string;
-    projectTeam: string;
-    projectType: string;
+    primaryTileImage: ContentfulImage;
+    primaryImageLandscape : ContentfulImage;
+    primaryHoverImageLandscape : ContentfulImage;
+    primaryImagePortrait : ContentfulImage;
+    primaryHoverImagePortrait : ContentfulImage;
 };
 
-export interface ProjectImage {
-    title: string;
-    subtitle: string;
-    projectLocation: string;
-    slug: string;
-    portraitCover: ContentfulImage;
-    landscapeFeature1: ContentfulImage;
-    portraitFeature1: ContentfulImage;
-    portraitFeature2: ContentfulImage;
-    projectType: string;
-};
+// export interface ProjectImage {
+//     title: string;
+//     subtitle: string;
+//     projectLocation: string;
+//     slug: string;
+//     primaryImageLandscape : ContentfulImage;
+//     primaryHoverImageLandscape : ContentfulImage;
+//     primaryImagePortrait : ContentfulImage;
+//     primaryHoverImagePortrait : ContentfulImage;
+//     projectType: string;
+// };
 
-export interface ProjectTile  {
-    title: string;
-    tileCover: ContentfulImage
-}
+// export interface ProjectTile {
+//     slug: string;
+//     title: string;
+//     subtitle: string;
+//     projectLocation: string;
+//     projectType: string;
+//     : ContentfulImage;
+//     portraitCover: ContentfulImage;
+//     landscapeFeature1: ContentfulImage;
+//     portraitFeature1: ContentfulImage;
 
-export interface ProjectTileLink {
-    slug: string;
-    title: string;
-    subtitle: string;
-    projectLocation: string;
-    projectType: string;
-    tileCover: ContentfulImage;
-    portraitCover: ContentfulImage;
-    landscapeFeature1: ContentfulImage;
-    portraitFeature1: ContentfulImage;
-}
+//     primaryImageLandscape : ContentfulImage;
+//     primaryHoverImageLandscape : ContentfulImage;
+//     primaryImagePortrait : ContentfulImage;
+//     primaryHoverImagePortrait : ContentfulImage;
+// }

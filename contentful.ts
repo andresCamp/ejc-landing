@@ -1,5 +1,5 @@
 import { createClient } from "contentful"
-import { Homepage, Project, ProjectImage, ProjectTile, ProjectTileLink } from "./types";
+import { Homepage, Project } from "./types";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
@@ -122,57 +122,89 @@ export const getHomepage = async (): Promise<Homepage> => {
   return homepage;
 }
 
-export const getProjectImage = async (id: string): Promise<ProjectImage> => {
+// export const getProjectImage = async (id: string): Promise<Project> => {
+//   let query = `{
+//     project(id: "${id}") {
+//       title
+//       subtitle
+//       slug
+//       projectLocation
+//       projectType
+//       portraitCover {
+//         url
+//         description
+//       }
+//       landscapeFeature1 {
+//         url
+//         description
+//       }
+//       portraitFeature1 {
+//         url
+//         description
+//       }
+//       portraitFeature2 {
+//         url
+//         description
+//       }
+//     }
+//   }`;
+//   const res = await fetchContentfulData(query);
+//   const project: Project = res.data.project || [];
+//   return project;
+// }
+
+export const getProject = async (id: string): Promise<Project> => {
   let query = `{
     project(id: "${id}") {
       title
-      subtitle
       slug
+      subtitle
       projectLocation
-      projectType
-      portraitCover {
+      primaryImageLandscape {
         url
         description
       }
-      landscapeFeature1 {
+      primaryHoverImageLandscape {
         url
         description
       }
-      portraitFeature1 {
-        url
+      primaryImagePortrait {
+        url 
         description
       }
-      portraitFeature2 {
+      primaryHoverImagePortrait {
         url
         description
       }
     }
   }`;
   const res = await fetchContentfulData(query);
-  const project: ProjectImage = res.data.project || [];
+  const project: Project = res.data.project || [];
   return project;
 }
 
-export const getCarouselProjects= async (): Promise<ProjectTile[]> => {
+export const getCarouselProjects= async (): Promise<Project[]> => {
   let query = `{
     projectCollection {
       items {
-        tileCover {
+        primaryTileImage {
           url
           description
         }
         title
+        projectType
+        slug
       }
     }
   }`;
   const res = await fetchContentfulData(query);
-  const carouselProjects: ProjectTile[] = res.data.projectCollection.items || [];
+  const carouselProjects: Project[] = res.data.projectCollection.items || [];
   return carouselProjects;
 }
 
 
 
-export const getCommercialProjects = async (): Promise<ProjectTileLink[]> => {
+export const getCommercialProjects = async (): Promise<Project[]> => {
   let query = `{
     projectCollection(where: { projectType: "commercial" }) {
       items {
@@ -181,19 +213,23 @@ export const getCommercialProjects = async (): Promise<ProjectTileLink[]> => {
         title
         projectLocation
         projectType
-        tileCover {
+        primaryTileImage {
           url
           description
         }
-        portraitCover {
+        primaryImageLandscape {
           url
           description
         }
-        landscapeFeature1 {
+        primaryHoverImageLandscape {
           url
           description
         }
-        portraitFeature1 {
+        primaryImagePortrait {
+          url
+          description
+        }
+        primaryHoverImagePortrait {
           url
           description
         }
@@ -201,11 +237,11 @@ export const getCommercialProjects = async (): Promise<ProjectTileLink[]> => {
     }
   }`;
   const res = await fetchContentfulData(query);
-  const commercialProjects: ProjectTileLink[] = res.data.projectCollection.items || [];
+  const commercialProjects: Project[] = res.data.projectCollection.items || [];
   return commercialProjects;
 }
 
-export const getResidentialProjects = async (): Promise<ProjectTileLink[]> => {
+export const getResidentialProjects = async (): Promise<Project[]> => {
   let query = `{
     projectCollection(where: { projectType: "residential" }) {
       items {
@@ -214,19 +250,23 @@ export const getResidentialProjects = async (): Promise<ProjectTileLink[]> => {
         title
         projectLocation
         projectType
-        tileCover {
+        primaryTileImage {
           url
           description
         }
-        portraitCover {
+        primaryImageLandscape {
           url
           description
         }
-        landscapeFeature1 {
+        primaryHoverImageLandscape {
           url
           description
         }
-        portraitFeature1 {
+        primaryImagePortrait {
+          url
+          description
+        }
+        primaryHoverImagePortrait {
           url
           description
         }
@@ -234,51 +274,51 @@ export const getResidentialProjects = async (): Promise<ProjectTileLink[]> => {
     }
   }`;
   const res = await fetchContentfulData(query);
-  const residentialProjects: ProjectTileLink[] = res.data.projectCollection.items || [];
+  const residentialProjects: Project[] = res.data.projectCollection.items || [];
   return residentialProjects;
 }
 
 
 
-export const getProjects = async (): Promise<Project[]> => {
-  let query = `{
-    projectCollection {
-      items {
-        title
-        subtitle
-        slug
-        portraitCover {
-          url
-        }
-        tileCover {
-          url
-        }
-        projectDescription1
-        squareFeature1 {
-          url
-        }
-        portraitFeature1 {
-          url
-        }
-        portraitFeature2 {
-          url
-        }
-        landscapeFeature1 {
-          url
-        }
-        squareFeature2 {
-          url
-        }
-        projectDescription2
-        projectLocation
-        projectStatus
-        projectYear
-        projectTeam
-        projectType
-      }
-    }
-  }`;
-  const res = await fetchContentfulData(query);
-  const projects: Project[] = res.data.projectCollection.items || [];
-  return projects;
-};
+// export const getProjects = async (): Promise<Project[]> => {
+//   let query = `{
+//     projectCollection {
+//       items {
+//         title
+//         subtitle
+//         slug
+//         primaryImageLandscape {
+//           url
+//         }
+//         tileImage {
+//           url
+//         }
+//         projectDescription1
+//         squareFeature1 {
+//           url
+//         }
+//         portraitFeature1 {
+//           url
+//         }
+//         portraitFeature2 {
+//           url
+//         }
+//         landscapeFeature1 {
+//           url
+//         }
+//         squareFeature2 {
+//           url
+//         }
+//         projectDescription2
+//         projectLocation
+//         projectStatus
+//         projectYear
+//         projectTeam
+//         projectType
+//       }
+//     }
+//   }`;
+//   const res = await fetchContentfulData(query);
+//   const projects: Project[] = res.data.projectCollection.items || [];
+//   return projects;
+// };

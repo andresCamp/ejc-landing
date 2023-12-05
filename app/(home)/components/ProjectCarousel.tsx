@@ -1,14 +1,14 @@
 
 import ImageTile from '@/components/ImageTile';
 import { getCarouselProjects } from '@/contentful';
-import { ProjectTile } from '@/types';
+import { Project } from '@/types';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 
 
 const ProjectCarousel = () => {
 
-    const [projectsData, setProjectsData] = useState<ProjectTile[] | null>(null);
+    const [projectsData, setProjectsData] = useState<Project[] | null>(null);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -45,13 +45,13 @@ const ProjectCarousel = () => {
     <div className='bg-primary pt-32 pb-16 flex flex-col gap-8 justify-center items-center'>
 
         <div className='grid grid-cols-6 gap-4 '>
-            {projectsData.map( (project: ProjectTile, id: number) => (
+            {projectsData.map( (project: Project, id: number) => (
              
              <div key={id} className='group flex flex-col items-center gap-3'>
              <div className="relative">
                  <Image
-                     src={project.tileCover.url}
-                     alt={project.tileCover.description}
+                     src={project.primaryTileImage.url}
+                     alt={project.primaryTileImage.description}
                      sizes="100vw"
                      style={{
                          width: '100%',

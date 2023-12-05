@@ -1,10 +1,9 @@
 'use client'
 import Image from 'next/image'
 import HeroSection from './components/HeroSection'
-import { get } from 'http'
-import { getHomepage, getProjectImage } from '@/contentful'
+import { getHomepage, getProject } from '@/contentful'
 import { useEffect, useState } from 'react'
-import { Homepage, Project, ProjectImage } from '@/types'
+import { Homepage, Project } from '@/types'
 import HeaderSection from './components/HeaderSection'
 import QuoteSection from './components/QuoteSection'
 import ProjectsSelection from './components/ProjectsSelection'
@@ -22,7 +21,7 @@ import LandscapeFeatureSection from '@/components/LandscapeFeatureSection'
 const Page = () => {
   const [homepageData, setHomepageData] = useState<Homepage | null>(null);
   const [loading, setLoading] = useState(true);
-  const [featuredProjects, setFeaturedProjects] = useState<ProjectImage[] | null>(null);
+  const [featuredProjects, setFeaturedProjects] = useState<Project[] | null>(null);
 
 
   useEffect(() => {
@@ -32,10 +31,10 @@ const Page = () => {
 
         setHomepageData(data);
 
-        const featuredProject1 = await getProjectImage(data.featuredProject1.sys.id)
-        const featuredProject2 = await getProjectImage(data.featuredProject2.sys.id)
-        const featuredProject3 = await getProjectImage(data.featuredProject3.sys.id)
-        const featuredProject4 = await getProjectImage(data.featuredProject4.sys.id)
+        const featuredProject1 = await getProject(data.featuredProject1.sys.id)
+        const featuredProject2 = await getProject(data.featuredProject2.sys.id)
+        const featuredProject3 = await getProject(data.featuredProject3.sys.id)
+        const featuredProject4 = await getProject(data.featuredProject4.sys.id)
 
         setFeaturedProjects([
           featuredProject1,
@@ -79,11 +78,11 @@ return (
       <HeaderSection text={homepageData.heading}/>
 
       <LandscapeFeatureSection
-        img={featuredProjects![0].portraitCover.url}
-        hoverImg={featuredProjects![0].landscapeFeature1.url}
+        img={featuredProjects![0].primaryImageLandscape.url}
+        hoverImg={featuredProjects![0].primaryHoverImageLandscape.url}
         slug={featuredProjects![0].slug}
-        description={featuredProjects![0].portraitCover.description}
-        hoverDescription={featuredProjects![0].portraitFeature1.description}
+        description={featuredProjects![0].primaryImageLandscape.description}
+        hoverDescription={featuredProjects![0].primaryHoverImageLandscape.description}
         title={featuredProjects![0].title}
         subtitle={featuredProjects![0].subtitle}
         location={featuredProjects![0].projectLocation}
@@ -112,11 +111,11 @@ return (
         />
 
       <LandscapeFeatureSection
-        img={featuredProjects![1].portraitCover.url}
-        hoverImg={featuredProjects![1].landscapeFeature1.url}
+        img={featuredProjects![1].primaryImageLandscape.url}
+        hoverImg={featuredProjects![1].primaryHoverImageLandscape.url}
         slug={featuredProjects![1].slug}
-        description={featuredProjects![1].portraitCover.description}
-        hoverDescription={featuredProjects![1].portraitFeature1.description}
+        description={featuredProjects![1].primaryImageLandscape.description}
+        hoverDescription={featuredProjects![1].primaryHoverImageLandscape.description}
         title={featuredProjects![1].title}
         subtitle={featuredProjects![1].subtitle}
         location={featuredProjects![1].projectLocation}

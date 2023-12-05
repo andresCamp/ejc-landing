@@ -2,7 +2,7 @@
 import useFetchData from '@/components/useFetchData';
 import React from 'react';
 import { getCommercialProjects } from '@/contentful';
-import { ProjectTile, ProjectTileLink } from '@/types';
+import { Project } from '@/types';
 import NavBar from '../(home)/components/NavBar';
 import PortraitFeatureSection from '@/components/PortraitFeatureSection';
 import LandscapeFeatureSection from '@/components/LandscapeFeatureSection';
@@ -10,7 +10,7 @@ import LandscapeFeatureSection from '@/components/LandscapeFeatureSection';
   
 
 const Page: React.FC = () => {
-  const { data, loading, error } = useFetchData<ProjectTileLink[]>(getCommercialProjects);
+  const { data, loading, error } = useFetchData<Project[]>(getCommercialProjects);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -102,21 +102,21 @@ const Page: React.FC = () => {
         sections.push(
           <PortraitFeatureSection
             key={`portrait-${i}`}
-            img1={project1.portraitCover.url}
-            hoverImg1={project1.landscapeFeature1.url}
+            img1={project1.primaryImagePortrait.url}
+            hoverImg1={project1.primaryHoverImagePortrait.url}
             slug1={project1.slug}
-            description1={project1.portraitCover.description}
-            hoverDescription1={project1.portraitFeature1.description}
+            description1={project1.primaryImagePortrait.description}
+            hoverDescription1={project1.primaryHoverImagePortrait.description}
             title1={project1.title}
             subtitle1={project1.subtitle}
             location1={project1.projectLocation}
             type1={project1.projectType}
             
-            img2={project2 ? project2.portraitCover.url : undefined}
-            hoverImg2={project2 ? project2.landscapeFeature1.url : undefined}
+            img2={project2 ? project2.primaryImagePortrait.url : undefined}
+            hoverImg2={project2 ? project2.primaryHoverImagePortrait.url : undefined}
             slug2={project2 ? project2.slug : undefined}
-            description2={project2 ? project2.portraitCover.description : undefined}
-            hoverDescription2={project2 ? project2.portraitFeature1.description : undefined}
+            description2={project2 ? project2.primaryImagePortrait.description : undefined}
+            hoverDescription2={project2 ? project2.primaryHoverImagePortrait.description : undefined}
             title2={project2 ? project2.title : undefined}
             subtitle2={project2 ? project2.subtitle : undefined}
             location2={project2 ? project2.projectLocation : undefined}
@@ -134,11 +134,11 @@ const Page: React.FC = () => {
         sections.push(
           <LandscapeFeatureSection
             key={`landscape-${i}`}
-            img={data[i].portraitCover.url}
-            hoverImg={data[i].landscapeFeature1.url}
+            img={data[i].primaryImageLandscape.url}
+            hoverImg={data[i].primaryHoverImageLandscape.url}
             slug={data[i].slug}
-            description={data[i].portraitCover.description}
-            hoverDescription={data[i].portraitFeature1.description}
+            description={data[i].primaryImageLandscape.description}
+            hoverDescription={data[i].primaryHoverImageLandscape.description}
             title={data[i].title}
             subtitle={data[i].subtitle}
             location={data[i].projectLocation}
