@@ -19,7 +19,7 @@ interface HomepageProps {
 }
 
 
-const Home: React.FC<HomepageProps> = () => {
+const Page: React.FC<HomepageProps> = () => {
   const [homepageData, setHomepageData] = useState<Homepage | null>(null);
   const [loading, setLoading] = useState(true);
   const [featuredProjects, setFeaturedProjects] = useState<ProjectImage[] | null>(null);
@@ -180,7 +180,7 @@ return (
 }
 
 
-export default Home
+export default Page
 
 
 
