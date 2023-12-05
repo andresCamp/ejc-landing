@@ -7,7 +7,7 @@ import NavBar from '../(home)/components/NavBar';
 import PortraitFeatureSection from '@/components/PortraitFeatureSection';
 import LandscapeFeatureSection from '@/components/LandscapeFeatureSection';
 
-
+  
 
 const Page: React.FC = () => {
   const { data, loading, error } = useFetchData<ProjectTileLink[]>(getCommercialProjects);
