@@ -1,8 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Questrial, Syne } from 'next/font/google'
 import './globals.css'
+import NavBar from './(home)/components/NavBar'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+// const syne = Syne({ subsets: ['latin'] })
+// const questrial = Questrial({ subsets: ['latin']})
+
+
+const syne = Syne({ subsets: ['latin'], variable:'--font-syne', weight: ['400','500', '700'] })
+const questrial = Questrial({ subsets: ['latin'], variable:'--font-questrial', weight: ['400'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${syne.variable} ${questrial.variable}`}>
+        {children}
+      </body>
     </html>
   )
 }
