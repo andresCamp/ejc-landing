@@ -14,12 +14,12 @@ import AboutStudioSection from './components/AboutStudioSection'
 import ProjectCarousel from './components/ProjectCarousel'
 import LandscapeFeatureSection from '@/components/LandscapeFeatureSection'
 
-interface HomepageProps {
-  homepageData: Homepage
-}
+// interface HomepageProps {
+//   homepageData: Homepage
+// }
 
 
-const Page: React.FC<HomepageProps> = () => {
+const Page = () => {
   const [homepageData, setHomepageData] = useState<Homepage | null>(null);
   const [loading, setLoading] = useState(true);
   const [featuredProjects, setFeaturedProjects] = useState<ProjectImage[] | null>(null);
