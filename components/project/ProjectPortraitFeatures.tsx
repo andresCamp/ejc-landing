@@ -24,17 +24,7 @@ const ProjectPortraitFeatures: React.FC<ProjectPortraitFeaturesProps> = ({img1, 
           width={500}
           height={300}
         />
-        {/* <ImageTile 
-            img={img1}
-            hoverImg={img1}
-            slug='commercial'
-            description={img1Description}
-            hoverDescription={img1Description}
-            title='Commercial Projects'
-            subtitle='View'
-            location=''
-            type=''
-        /> */}
+
 
         </div>
 
