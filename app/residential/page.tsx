@@ -1,6 +1,6 @@
 // 'use client'
 import React from 'react';
-import { getCommercialProjects } from '@/contentful';
+import { getResidentialProjects } from '@/contentful';
 import { Project } from '@/types';
 import NavBar from '../(home)/components/NavBar';
 import PortraitFeatureSection from '@/components/PortraitFeatureSection';
@@ -9,30 +9,28 @@ import { Metadata } from 'next';
 
 
 export const metadata: Metadata = {
-  title: `EJC - Commercial Projects`,
-}
+    title: `EJC - Residential Projects`,
+  }
   
 
 const Page: React.FC = async () => {
+//   const { data, loading, error } = useFetchData<Project[]>(getResidentialProjects);
 
-  const commercialProjectsData: Promise<Project[]> = getCommercialProjects();
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
 
-  const data = await commercialProjectsData
+//   if (error) {
+//     return <div>Error loading data: {error.message}</div>;
+//   }
 
+//   if (!data) {
+//     return <div>No data available</div>;
+//   }
 
-  // const { data, loading, error } = useFetchData<Project[]>(getCommercialProjects);
+    const residentialProjectsData: Promise<Project[]> = getResidentialProjects();
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error loading data: {error.message}</div>;
-  // }
-
-  // if (!data) {
-  //   return <div>No data available</div>;
-  // }
+    const data = await residentialProjectsData
 
   const renderSections = () => {
     const sections = [];

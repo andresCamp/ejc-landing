@@ -2,41 +2,46 @@
 import ImageTile from '@/components/ImageTile';
 import { getCarouselProjects } from '@/contentful';
 import { Project } from '@/types';
+import { get } from 'http';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 
 
-const ProjectCarousel = () => {
+const ProjectCarousel = async () => {
 
-    const [projectsData, setProjectsData] = useState<Project[] | null>(null);
-    const [loading, setLoading] = useState(true)
+    // const [projectsData, setProjectsData] = useState<Project[] | null>(null);
+    // const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        const fetchProjects= async () => {
-            try {
-                const data = await getCarouselProjects();
+    // useEffect(() => {
+    //     const fetchProjects= async () => {
+    //         try {
+    //             const data = await getCarouselProjects();
 
-                // console.log(data[0])
+    //             // console.log(data[0])
 
-                setProjectsData(data);
+    //             setProjectsData(data);
               
-                setLoading(false);    
-            } catch (error) {
-                console.error('Error fetching homepage data:', error);
-                setLoading(false);
-            }
-        };
-        fetchProjects();
-    }, []);
+    //             setLoading(false);    
+    //         } catch (error) {
+    //             console.error('Error fetching homepage data:', error);
+    //             setLoading(false);
+    //         }
+    //     };
+    //     fetchProjects();
+    // }, []);
 
 
-    if (loading) {
-        return <div>Loading...</div>;
-      }
+    // if (loading) {
+    //     return <div>Loading...</div>;
+    //   }
       
-      if (!projectsData) {
-        return <div>Error loading data</div>;
-      }
+    //   if (!projectsData) {
+    //     return <div>Error loading data</div>;
+    //   }
+
+    const carouselProjectData = getCarouselProjects();
+
+    const data = await carouselProjectData
 
 
     // console.log(projectsData)
@@ -45,7 +50,7 @@ const ProjectCarousel = () => {
     <div className='bg-primary pt-32 pb-16 flex flex-col gap-8 justify-center items-center'>
 
         <div className='grid grid-cols-6 gap-4 '>
-            {projectsData.map( (project: Project, id: number) => (
+            {data.map( (project: Project, id: number) => (
              
              <div key={id} className='group flex flex-col items-center gap-3'>
              <div className="relative">

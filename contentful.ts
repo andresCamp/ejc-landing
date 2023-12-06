@@ -280,6 +280,53 @@ export const getResidentialProjects = async (): Promise<Project[]> => {
 }
 
 
+export const getProjectBySlug = async (slug: string): Promise<Project> => {
+  let query = `{
+    projectCollection(where: { slug: "${slug}" }, limit: 1) {
+      items {
+        title
+        slug
+        subtitle
+        projectType
+        projectLocation
+        projectYear
+        projectDescription1
+        projectDescription2 
+        primaryImageLandscape {
+          url
+          description
+        }
+        primaryHoverImageLandscape {
+          url
+          description
+        }
+        squareFeature1 {
+          url
+          description
+        }
+        squareFeature2 {
+          url
+          description
+        }
+        portraitFeature1 {
+          url
+          description
+        }
+        portraitFeature2 {
+          url
+          description
+        }
+      }
+    }
+  }`;
+  const res = await fetchContentfulData(query);
+  const project: Project = res.data.projectCollection.items[0] || [];
+  return project;
+}
+
+
+
+
 
 // export const getProjects = async (): Promise<Project[]> => {
 //   let query = `{

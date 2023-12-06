@@ -1,8 +1,8 @@
-'use client'
+// 'use client'
 import Image from 'next/image'
 import HeroSection from './components/HeroSection'
 import { getHomepage, getProject } from '@/contentful'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import { Homepage, Project } from '@/types'
 import HeaderSection from './components/HeaderSection'
 import QuoteSection from './components/QuoteSection'
@@ -18,79 +18,89 @@ import LandscapeFeatureSection from '@/components/LandscapeFeatureSection'
 // }
 
 
-const Page = () => {
-  const [homepageData, setHomepageData] = useState<Homepage | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [featuredProjects, setFeaturedProjects] = useState<Project[] | null>(null);
+const Page = async () => {
+  // const [homepageData, setHomepageData] = useState<Homepage | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [featuredProjects, setFeaturedProjects] = useState<Project[] | null>(null);
 
 
-  useEffect(() => {
-    const fetchHomepageData = async () => {
-      try {
-        const data = await getHomepage();
+//   useEffect(() => {
+//     const fetchHomepageData = async () => {
+//       try {
+//         const data = await getHomepage();
 
-        setHomepageData(data);
+//         setHomepageData(data);
 
-        const featuredProject1 = await getProject(data.featuredProject1.sys.id)
-        const featuredProject2 = await getProject(data.featuredProject2.sys.id)
-        const featuredProject3 = await getProject(data.featuredProject3.sys.id)
-        const featuredProject4 = await getProject(data.featuredProject4.sys.id)
+//         const featuredProject1 = await getProject(data.featuredProject1.sys.id)
+//         const featuredProject2 = await getProject(data.featuredProject2.sys.id)
+//         const featuredProject3 = await getProject(data.featuredProject3.sys.id)
+//         const featuredProject4 = await getProject(data.featuredProject4.sys.id)
 
-        console.log(featuredProject1)
+//         console.log(featuredProject1)
 
-        setFeaturedProjects([
-          featuredProject1,
-          featuredProject2,
-          featuredProject3,
-          featuredProject4,
-      ])
+//         setFeaturedProjects([
+//           featuredProject1,
+//           featuredProject2,
+//           featuredProject3,
+//           featuredProject4,
+//       ])
       
-      // console.log(featuredProjects![0].projectType)
+//       // console.log(featuredProjects![0].projectType)
       
-      setLoading(false);
+//       setLoading(false);
       
       
       
-    } catch (error) {
-      console.error('Error fetching homepage data:', error);
-      setLoading(false);
-    }
-  };
+//     } catch (error) {
+//       console.error('Error fetching homepage data:', error);
+//       setLoading(false);
+//     }
+//   };
   
-  fetchHomepageData();
-}, []);
+//   fetchHomepageData();
+// }, []);
 
 // console.log(homepageData)
 
-if (loading) {
-  return <div>Loading...</div>;
-}
+// if (loading) {
+//   return <div>Loading...</div>;
+// }
 
-if (!homepageData) {
-  return <div>Error loading data</div>;
-}
+// if (!homepageData) {
+//   return <div>Error loading data</div>;
+// }
 
 // const url = homepageData?.heroImage.url
 
 
 
+    const homepageData: Promise<Homepage> = getHomepage();
+
+    const data = await homepageData
+
+    const featuredProject1 = await getProject(data.featuredProject1.sys.id)
+    const featuredProject2 = await getProject(data.featuredProject2.sys.id)
+    const featuredProject3 = await getProject(data.featuredProject3.sys.id)
+    const featuredProject4 = await getProject(data.featuredProject4.sys.id)
+
+
 return (
   <div className='h-screen'>
-      <HeroSection url={homepageData.heroImage.url} desc={homepageData.heroImage.description}/>
+      <HeroSection url={data.heroImage.url} desc={data.heroImage.description}/>
 
 
-      <HeaderSection text={homepageData.heading}/>
+      <HeaderSection text={data.heading}/>
 
       <LandscapeFeatureSection
-        img={featuredProjects![0].primaryImageLandscape.url}
-        hoverImg={featuredProjects![0].primaryHoverImageLandscape.url}
-        slug={featuredProjects![0].slug}
-        description={featuredProjects![0].primaryImageLandscape.description}
-        hoverDescription={featuredProjects![0].primaryHoverImageLandscape.description}
-        title={featuredProjects![0].title}
-        subtitle={featuredProjects![0].subtitle}
-        location={featuredProjects![0].projectLocation}
-        type={featuredProjects![0].projectType}
+        img={featuredProject1.primaryImageLandscape.url}
+        hoverImg={featuredProject1.primaryHoverImageLandscape.url}
+        slug={featuredProject1.slug}
+        description={featuredProject1.primaryImageLandscape.description}
+        hoverDescription={featuredProject1.primaryHoverImageLandscape.description}
+        title={featuredProject1.title}
+        subtitle={featuredProject1.subtitle}
+        location={featuredProject1.projectLocation}
+        type={featuredProject1.projectType}
       />
     
 
@@ -108,22 +118,22 @@ return (
       </div> */}
 
       <ProjectsSelection
-        img1={homepageData.commercialProjectsCover.url}
-        img1Description={homepageData.commercialProjectsCover.description}
-        img2={homepageData.residentialProjectsCover.url}
-        img2Description={homepageData.residentialProjectsCover.description}
+        img1={data.commercialProjectsCover.url}
+        img1Description={data.commercialProjectsCover.description}
+        img2={data.residentialProjectsCover.url}
+        img2Description={data.residentialProjectsCover.description}
         />
 
       <LandscapeFeatureSection
-        img={featuredProjects![1].primaryImageLandscape.url}
-        hoverImg={featuredProjects![1].primaryHoverImageLandscape.url}
-        slug={featuredProjects![1].slug}
-        description={featuredProjects![1].primaryImageLandscape.description}
-        hoverDescription={featuredProjects![1].primaryHoverImageLandscape.description}
-        title={featuredProjects![1].title}
-        subtitle={featuredProjects![1].subtitle}
-        location={featuredProjects![1].projectLocation}
-        type={featuredProjects![1].projectType}
+        img={featuredProject2.primaryImageLandscape.url}
+        hoverImg={featuredProject2.primaryHoverImageLandscape.url}
+        slug={featuredProject2.slug}
+        description={featuredProject2.primaryImageLandscape.description}
+        hoverDescription={featuredProject2.primaryHoverImageLandscape.description}
+        title={featuredProject2.title}
+        subtitle={featuredProject2.subtitle}
+        location={featuredProject2.projectLocation}
+        type={featuredProject2.projectType}
       />
 
     
@@ -135,16 +145,16 @@ return (
 
 
 
-      <QuoteSection text={homepageData.philosophyQuote}/>
+      <QuoteSection text={data.philosophyQuote}/>
 
 
       <ProjectCarousel />
 
 
       <AboutStudioSection
-        img={homepageData.studioImageSquare.url}
-        alt={homepageData.studioImageSquare.description}
-        description={homepageData.studioDescription}
+        img={data.studioImageSquare.url}
+        alt={data.studioImageSquare.description}
+        description={data.studioDescription}
       />
 
 

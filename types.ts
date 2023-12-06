@@ -32,15 +32,21 @@ export interface Project  {
     slug: string;
     projectYear: string;
     projectType: string;
+    projectLocation: string;
     projectDescription1: string;
     projectDescription2: string;
-    projectLocation: string;
     primaryTileImage: ContentfulImage;
     primaryImageLandscape : ContentfulImage;
     primaryHoverImageLandscape : ContentfulImage;
     primaryImagePortrait : ContentfulImage;
     primaryHoverImagePortrait : ContentfulImage;
+    squareFeature1: ContentfulImage;
+    squareFeature2: ContentfulImage;
+    portraitFeature1: ContentfulImage;
+    portraitFeature2: ContentfulImage;
 };
+
+
 
 // export interface ProjectImage {
 //     title: string;
