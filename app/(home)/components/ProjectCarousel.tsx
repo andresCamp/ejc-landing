@@ -4,6 +4,7 @@ import { getCarouselProjects } from '@/contentful';
 import { Project } from '@/types';
 import { get } from 'http';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 
@@ -52,7 +53,8 @@ const ProjectCarousel = async () => {
         <div className='grid grid-cols-6 gap-4 '>
             {data.map( (project: Project, id: number) => (
              
-             <div key={id} className='group flex flex-col items-center gap-3'>
+             <Link href={`/${project.projectType}/${project.slug}`} className='group flex flex-col items-center gap-3' key={id}>
+        
              <div className="relative">
                  <Image
                      src={project.primaryTileImage.url}
@@ -69,7 +71,7 @@ const ProjectCarousel = async () => {
              </div>
          
              <h3 className='opacity-0 group-hover:opacity-100 text-white text-xl font-light transition-opacity duration-300'>{project.title}</h3>
-         </div>
+         </Link>
          
          
 
