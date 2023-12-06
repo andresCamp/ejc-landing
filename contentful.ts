@@ -160,6 +160,7 @@ export const getProject = async (id: string): Promise<Project> => {
       slug
       subtitle
       projectLocation
+      projectType
       primaryImageLandscape {
         url
         description

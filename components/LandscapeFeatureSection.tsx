@@ -16,6 +16,10 @@ interface LandscapeFeatureSectionProps {
 }
 
 const LandscapeFeatureSection: React.FC<LandscapeFeatureSectionProps> = ({img, hoverImg, slug, type, description, hoverDescription, title, subtitle, location}) => {
+  
+  // console.log(slug)
+  // console.log(type)
+  
   return (
     <div className='px-48'>
        <ImageTile 

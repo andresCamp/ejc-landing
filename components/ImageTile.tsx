@@ -16,7 +16,12 @@ interface ImageTileProps {
 }
 
 const ImageTile: React.FC<ImageTileProps> = ({img, hoverImg, slug, type, hoverDescription, description, title, subtitle, location }) => {
-  return (
+  
+//     console.log(title)
+//   console.log(`${type && "/"}${type}/${slug}`)
+
+  
+    return (
     <Link href={`${type && "/"}${type}/${slug}`}>
         <div className="group relative"> {/* Use group to apply hover state to children */}
 

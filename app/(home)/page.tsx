@@ -36,6 +36,8 @@ const Page = () => {
         const featuredProject3 = await getProject(data.featuredProject3.sys.id)
         const featuredProject4 = await getProject(data.featuredProject4.sys.id)
 
+        console.log(featuredProject1)
+
         setFeaturedProjects([
           featuredProject1,
           featuredProject2,
@@ -43,6 +45,7 @@ const Page = () => {
           featuredProject4,
       ])
       
+      // console.log(featuredProjects![0].projectType)
       
       setLoading(false);
       
@@ -68,6 +71,7 @@ if (!homepageData) {
 }
 
 // const url = homepageData?.heroImage.url
+
 
 
 return (
