@@ -12,6 +12,7 @@ import Button from '@/components/Button'
 import AboutStudioSection from './components/AboutStudioSection'
 import ProjectCarousel from './components/ProjectCarousel'
 import LandscapeFeatureSection from '@/components/LandscapeFeatureSection'
+import Footer from '@/components/Footer'
 
 // interface HomepageProps {
 //   homepageData: Homepage
@@ -85,7 +86,7 @@ const Page = async () => {
 
 
 return (
-  <div className='h-screen'>
+  <div className='h-full'>
       <HeroSection url={data.heroImage.url} desc={data.heroImage.description}/>
 
 
@@ -163,6 +164,8 @@ return (
         <h2>building spaces</h2>
         <h2>that tell a story</h2>
       </div>
+
+      {/* <Footer /> */}
 
 
       {/* Use homepageData here */}

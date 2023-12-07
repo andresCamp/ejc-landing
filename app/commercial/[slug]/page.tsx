@@ -10,8 +10,18 @@ import { Metadata } from 'next';
 import React from 'react'
 
 
-export const metadata: Metadata = {
-    title: `EJC - Project`,
+// export const metadata: Metadata = {
+//     title: `EJC - Project`,
+// }
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const projectData: Promise<Project> = getProjectBySlug(params.slug);
+    const data = await projectData
+    
+    return {
+        title: `EJC - ${data.title}`,
+        description: data.projectDescription1,
+    }
 }
 
 const Page = async ({ params,}:{ params: {slug: string} }) => {
