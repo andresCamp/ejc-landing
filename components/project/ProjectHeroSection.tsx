@@ -33,8 +33,8 @@ const ProjectHeroSection: React.FC<ProjectHeroSectionProps> = ({title, subtitle,
 
   <div className='z-50 flex justify-between items-end font-light text-xl p-12 text-white'>
     <div>
-      <p className='uppercase'>{title}</p>
-      <p className='text-lg'>{subtitle}</p>
+      <p className='uppercase tracking-widest'>{title}</p>
+      <p className='text-sm tracking-wide text-stone-100'>{subtitle}</p>
     </div>
 
     <Link href={`/${type}`} className='flex flex-row items-center gap-2 hover:opacity-80 transition-opacity duration-300'>

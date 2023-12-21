@@ -21,7 +21,7 @@ const LandscapeFeatureSection: React.FC<LandscapeFeatureSectionProps> = ({img, h
   // console.log(type)
   
   return (
-    <div className='px-48'>
+    <div className='px-8 sm:px-48'>
        <ImageTile 
           img={img}
           hoverImg={hoverImg}

@@ -17,7 +17,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({img, alt, left, 
       left ?
         <div className='flex flex-row gap-32 justify-center items-center '>
           <div className='flex flex-col gap-2 justify-center items-start w-1/2'>
-            <p className='font-questrial text-tertiary leading-8 text-xl font-thin'>{description}</p>
+            <p className='font-questrial text-tertiary leading-8 text-xl font-thin tracking-wide'>{description}</p>
           </div>
     
           <Image
@@ -39,7 +39,7 @@ const ProjectDescription: React.FC<ProjectDescriptionProps> = ({img, alt, left, 
           />
 
           <div className='flex flex-col gap-2 justify-center items-start w-1/2'>
-            <p className='font-questrial text-tertiary leading-8 text-xl font-thin'>{description}</p>
+            <p className='font-questrial text-tertiary leading-8 text-xl font-thin tracking-wide'>{description}</p>
           </div>
         </div>
       }

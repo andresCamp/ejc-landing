@@ -1,5 +1,5 @@
 import { createClient } from "contentful"
-import { Homepage, Project } from "./types";
+import { ContentfulImage, Homepage, OurShopPage, PressPost, Project, StudioPage } from "./types";
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
@@ -22,53 +22,6 @@ const fetchContentfulData = async (query: string): Promise<any> => {
   const data = res.json();
   return data;
 };
-
-
-
-
-
-// type Homepage = {
-//   title: string;
-//   heading: string;
-//   philosophyQuote: string;
-//   heroImage: {
-//     url: string;
-//     description: string;
-//   };
-//   featuredProject1: {
-//     sys: {
-//       id: string;
-//     };
-//   };
-//   featuredProject2: {
-//     sys: {
-//       id: string;
-//     };
-//   };
-//   featuredProject3: {
-//     sys: {
-//       id: string;
-//     };
-//   };
-//   featuredProject4: {
-//     sys: {
-//       id: string;
-//     };
-//   };
-//   commercialProjectsCover: {
-//     url: string;
-//     description: string;
-//   };
-//   residentialProjectsCover: {
-//     url: string;
-//     description: string;
-//   };
-//   studioImageSquare: {
-//     url: string;
-//     description: string;
-//   };
-//   studioDescription: string;
-// };
 
 
 export const getHomepage = async (): Promise<Homepage> => {
@@ -120,6 +73,97 @@ export const getHomepage = async (): Promise<Homepage> => {
   const res = await fetchContentfulData(query);
   const homepage: Homepage = res.data.homepage || [];
   return homepage;
+}
+
+export const getStudioPage = async (): Promise<StudioPage> => {
+  let query = `query {
+    studioPage(id: "2YwdDMtDSVmgzaSWSju1yw") {
+      title
+      headline
+      studioDescription
+      leadArchitect {
+        fullName
+        title
+        primaryImagePortrait {
+          url
+          description
+        }
+      }
+      leadArchitectDescription
+      teamMemberFeature1 {
+        fullName
+        title
+        primaryImagePortrait {
+          url
+          description
+        }
+      }
+      teamMemberFeature2 {
+        fullName
+        title
+        primaryImagePortrait {
+          url
+          description
+        }
+      }
+      teamMemberFeature3 {
+        fullName
+        title
+        primaryImagePortrait {
+          url
+          description
+        }
+      }
+      teamMembersCollection {
+        items {
+          fullName
+          title
+          primaryImagePortrait {
+            url
+            description
+          }
+        }
+      }
+      primaryImageSquare{
+        url
+        description
+      }
+      primaryImageLandscape{
+        url
+        description
+      }
+    }
+    }`
+
+  const res = await fetchContentfulData(query);
+  const studioPage: StudioPage = res.data.studioPage || [];
+  return studioPage;
+}
+
+export const getShopPage = async (): Promise<OurShopPage> => {
+  let query = `{
+    ourShopPage( id: "3OpYOnn5pky6zBnt8zQYMA") {
+      title
+      shopDescription
+      primaryImageSquare {
+        url
+        description
+      }
+      portraitFeature1 {
+        url
+        description
+      }
+      portraitFeature2 {
+        url
+        description
+      }
+      ctaCopy
+    }
+    }`
+
+  const res = await fetchContentfulData(query);
+  const ourShopPage: OurShopPage = res.data.ourShopPage || [];
+  return ourShopPage;
 }
 
 // export const getProjectImage = async (id: string): Promise<Project> => {
@@ -325,6 +369,88 @@ export const getProjectBySlug = async (slug: string): Promise<Project> => {
 }
 
 
+export const getPressPostBySlug = async (slug: string): Promise<PressPost> => {
+  let query = `query {
+    pressPostCollection(where: { slug: "${slug}" }, limit: 1) {
+      items{
+        title
+        slug
+        publishDate
+        articleContent {
+          json
+        }
+        primaryImageLandscape {
+          url
+          description
+        }
+        primaryImagePortrait {
+          url
+          description
+        }
+      }
+    }
+  }`;
+  const res = await fetchContentfulData(query);
+  const pressPost: PressPost = res.data.pressPostCollection.items[0] || [];
+  return pressPost;
+}
+
+export const getPressPosts = async (): Promise<PressPost[]> => {
+  let query = `{
+    pressPostCollection {
+      items {
+        primaryImagePortrait {
+          url
+          description
+        }
+        title
+        slug
+        publishDate
+      }
+    }
+  }`;
+  const res = await fetchContentfulData(query);
+  const pressPosts: PressPost[] = res.data.pressPostCollection.items || [];
+  return pressPosts;
+}
+
+export const getAsset = async (id: string): Promise<ContentfulImage> => {
+  let query = `query {
+    asset(id: ${id}){
+      url
+      description
+    }
+  }`;
+  const res = await fetchContentfulData(query);
+  const assetData: ContentfulImage = res.data.asset || [];
+  return assetData;
+}
+
+export const getPostCarousel = async (): Promise<PressPost[]> => {
+  let query = `query {
+    pressPostCollection(order: publishDate_DESC, limit: 3) {
+      items {
+        title
+        slug
+        publishDate
+        articleContent {
+          json
+        }
+        primaryImageLandscape {
+          url
+          description
+        }
+        primaryImagePortrait {
+          url
+          description
+        }
+      }
+    }
+  }`;
+  const res = await fetchContentfulData(query);
+  const pressPostsData: PressPost[] = res.data.pressPostCollection.items || [];
+  return pressPostsData;
+}
 
 
 

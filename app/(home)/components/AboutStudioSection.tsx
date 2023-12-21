@@ -10,16 +10,16 @@ interface AboutStudioSectionProps {
 
 const AboutStudioSection: React.FC<AboutStudioSectionProps> = ({img, alt, description}) => {
   return (
-    <div className='flex flex-row gap-32 justify-center items-center py-32 px-32'>
+    <div className='flex flex-col sm:flex-row gap-32 justify-center items-center py-32 px-8 sm:px-48'>
       <Image
         src={img}
         alt={alt}
         width={1000}
         height={300}
       />
-      <div className='flex flex-col gap-2 justify-center items-start'>
-        <p className='font-questrial text-tertiary leading-8 text-xl font-thin'>{description}</p>
-        <Button text="THE STUDIO"/>
+      <div className='flex flex-col gap-6 justify-center items-start'>
+        <p className='font-questrial text-tertiary leading-loose text-xl font-thin tracking-wide'>{description}</p>
+        <Button text="THE STUDIO" url='/studio'/>
       </div>
 
     </div>

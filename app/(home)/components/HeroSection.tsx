@@ -12,9 +12,13 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({url, desc}) => {
   return (
     <div className='h-screen'>
+
+
       <NavBar
         white={true}
       />
+
+
 
       
       <div className='z-0'>
@@ -26,7 +30,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({url, desc}) => {
           // placeholder='blur'
           style={{
             objectFit: 'cover',
-          }}      
+          }}    
+          className='z-0'  
         />
       </div>
 

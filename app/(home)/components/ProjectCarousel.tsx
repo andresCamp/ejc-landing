@@ -10,36 +10,6 @@ import React, { useEffect, useState } from 'react'
 
 const ProjectCarousel = async () => {
 
-    // const [projectsData, setProjectsData] = useState<Project[] | null>(null);
-    // const [loading, setLoading] = useState(true)
-
-    // useEffect(() => {
-    //     const fetchProjects= async () => {
-    //         try {
-    //             const data = await getCarouselProjects();
-
-    //             // console.log(data[0])
-
-    //             setProjectsData(data);
-              
-    //             setLoading(false);    
-    //         } catch (error) {
-    //             console.error('Error fetching homepage data:', error);
-    //             setLoading(false);
-    //         }
-    //     };
-    //     fetchProjects();
-    // }, []);
-
-
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    //   }
-      
-    //   if (!projectsData) {
-    //     return <div>Error loading data</div>;
-    //   }
-
     const carouselProjectData = getCarouselProjects();
 
     const data = await carouselProjectData
@@ -48,7 +18,7 @@ const ProjectCarousel = async () => {
     // console.log(projectsData)
 
   return (
-    <div className='bg-primary pt-32 pb-16 flex flex-col gap-8 justify-center items-center'>
+    <div className='bg-primary h-screen sm:h-full pt-32 pb-16 flex flex-col gap-8 justify-center items-center'>
 
         <div className='grid grid-cols-6 gap-4 '>
             {data.map( (project: Project, id: number) => (
@@ -70,7 +40,7 @@ const ProjectCarousel = async () => {
                  />
              </div>
          
-             <h3 className='opacity-0 group-hover:opacity-100 text-white text-xl font-light transition-opacity duration-300'>{project.title}</h3>
+             <h3 className='opacity-0 hidden sm:block group-hover:opacity-100 tracking-wider font-inter text-white text-md font-thin transition-opacity duration-300'>{project.title}</h3>
          </Link>
          
          

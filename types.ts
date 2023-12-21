@@ -1,6 +1,6 @@
 import { type } from "os";
 
-interface ContentfulImage {
+export interface ContentfulImage {
     url: string;
     description: string;
 }
@@ -10,6 +10,20 @@ interface ProjectData {
         id: string;
       };
 }
+
+interface TeamMember {
+  fullName: string;
+  title: string;
+  primaryImagePortrait: ContentfulImage;
+}
+
+interface TeamMembersCollection {
+  items: TeamMember[];
+}
+
+interface ArticleContent {
+    json: string;
+  }
 
 export interface Homepage {
     title: string;
@@ -25,6 +39,38 @@ export interface Homepage {
     studioImageSquare: ContentfulImage;
     studioDescription: string;
 };
+
+export interface StudioPage {
+    title: string;
+    headline: string;
+    studioDescription: string;
+    leadArchitect: TeamMember;
+    leadArchitectDescription: string;
+    teamMemberFeature1: TeamMember;
+    teamMemberFeature2: TeamMember;
+    teamMemberFeature3: TeamMember;
+    teamMembersCollection: TeamMembersCollection;
+    primaryImageSquare: ContentfulImage;
+    primaryImageLandscape: ContentfulImage;
+}
+
+
+export interface OurShopPage {
+    shopDescription: string;
+    primaryImageSquare: ContentfulImage;
+    portraitFeature1: ContentfulImage;
+    portraitFeature2: ContentfulImage;
+    ctaCopy: string;
+}
+
+export interface PressPost {
+    title: string;
+    slug: string;
+    publishDate: string; // assuming publishDate is a string, change type if needed
+    articleContent: ArticleContent;
+    primaryImageLandscape: ContentfulImage;
+    primaryImagePortrait: ContentfulImage;
+}
 
 export interface Project  {
     title: string;

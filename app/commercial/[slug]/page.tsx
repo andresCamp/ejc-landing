@@ -9,11 +9,6 @@ import { Project } from '@/types';
 import { Metadata } from 'next';
 import React from 'react'
 
-
-// export const metadata: Metadata = {
-//     title: `EJC - Project`,
-// }
-
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const projectData: Promise<Project> = getProjectBySlug(params.slug);
     const data = await projectData

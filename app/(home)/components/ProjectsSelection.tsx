@@ -10,8 +10,8 @@ interface ProjectsSelectionProps {
 
 const ProjectsSelection: React.FC<ProjectsSelectionProps> = ({img1, img1Description, img2, img2Description}) => {
   return (
-    <div className='flex items-start justify-between py-36 px-48'>
-        <div className='w-2/5'>
+    <div className='flex flex-col gap-32 sm:gap-0 sm:flex-row items-start justify-between py-36 px-8 sm:px-48'>
+        <div className='w-full sm:w-2/5'>
         <ImageTile 
             img={img1}
             hoverImg={img1}
@@ -26,7 +26,7 @@ const ProjectsSelection: React.FC<ProjectsSelectionProps> = ({img1, img1Descript
 
         </div>
 
-        <div className='w-2/5'>
+        <div className='w-full sm:w-2/5'>
         <ImageTile 
             img={img2}
             hoverImg={img2}
