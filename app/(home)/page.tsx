@@ -21,61 +21,6 @@ import PressPostCarousel from './components/PressPostCarousel'
 
 
 const Page = async () => {
-  // const [homepageData, setHomepageData] = useState<Homepage | null>(null);
-  // const [loading, setLoading] = useState(true);
-  // const [featuredProjects, setFeaturedProjects] = useState<Project[] | null>(null);
-
-
-//   useEffect(() => {
-//     const fetchHomepageData = async () => {
-//       try {
-//         const data = await getHomepage();
-
-//         setHomepageData(data);
-
-//         const featuredProject1 = await getProject(data.featuredProject1.sys.id)
-//         const featuredProject2 = await getProject(data.featuredProject2.sys.id)
-//         const featuredProject3 = await getProject(data.featuredProject3.sys.id)
-//         const featuredProject4 = await getProject(data.featuredProject4.sys.id)
-
-//         console.log(featuredProject1)
-
-//         setFeaturedProjects([
-//           featuredProject1,
-//           featuredProject2,
-//           featuredProject3,
-//           featuredProject4,
-//       ])
-      
-//       // console.log(featuredProjects![0].projectType)
-      
-//       setLoading(false);
-      
-      
-      
-//     } catch (error) {
-//       console.error('Error fetching homepage data:', error);
-//       setLoading(false);
-//     }
-//   };
-  
-//   fetchHomepageData();
-// }, []);
-
-// console.log(homepageData)
-
-// if (loading) {
-//   return <div>Loading...</div>;
-// }
-
-// if (!homepageData) {
-//   return <div>Error loading data</div>;
-// }
-
-// const url = homepageData?.heroImage.url
-
-
-
     const homepageData: Promise<Homepage> = getHomepage();
 
     const data = await homepageData
@@ -85,10 +30,13 @@ const Page = async () => {
     const featuredProject3 = await getProject(data.featuredProject3.sys.id)
     const featuredProject4 = await getProject(data.featuredProject4.sys.id)
 
+    // console.log(data.heroImagesCollection)
+
 
 return (
   <div className='h-full'>
-      <HeroSection url={data.heroImage.url} desc={data.heroImage.description}/>
+      <HeroSection images={data.heroImagesCollection}/>
+      {/* <HeroSection images={data.heroImagesCollection} url={data.heroImage.url} desc={data.heroImage.description}/> */}
 
 
       <HeaderSection text={data.heading}/>
@@ -155,7 +103,9 @@ return (
 
       <AboutStudioSection
         img={data.studioImageSquare.url}
+        imgHover={data.studioImageSquareHover.url}
         alt={data.studioImageSquare.description}
+        altHover={data.studioImageSquareHover.description}
         description={data.studioDescription}
       />
 
@@ -163,11 +113,11 @@ return (
       <PressPostCarousel />
 
 
-      <div className='flex flex-col justify-between items-start py-56 px-8 sm:px-32 gap-4 bg-black font-syne text-8xl text-white'>
+      {/* <div className='flex flex-col justify-between items-start py-56 px-8 sm:px-32 gap-4 bg-black font-syne text-8xl text-white'>
         <h2>10 years</h2>
         <h2>building spaces</h2>
         <h2>that tell a story</h2>
-      </div>
+      </div> */}
 
 
 

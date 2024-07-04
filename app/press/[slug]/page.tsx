@@ -7,10 +7,14 @@ import React from 'react'
 import ArticleRenderer from '../components/ArticleRenderer';
 import PressPostCarousel from '@/app/(home)/components/PressPostCarousel';
 import NavBar from '@/app/(home)/components/NavBar';
+import { ArticleContent } from '@/types'; // Import the ArticleContent type
+
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const pressPostData: Promise<PressPost> = getPressPostBySlug(params.slug);
     const data = await pressPostData
+
+    console.log(data)
     
     return {
         title: `EJC - ${data.title}`,
@@ -23,6 +27,19 @@ const Page = async ({ params,}:{ params: {slug: string} }) => {
     const pressPostData: Promise<PressPost> = getPressPostBySlug(params.slug);
 
     const data = await pressPostData
+
+
+    const paragraphs = [data.paragraph1, data.paragraph2, data.paragraph3, data.paragraph4, data.paragraph5];
+    const images = data.postImagesCollection.items;
+
+    const renderContent = () => paragraphs.map((paragraph, index) => (
+        <React.Fragment key={index}>
+          <p className='text-xl text-gray-600 font-syne my-8'>{paragraph}</p>
+          {images[index] ? (
+            <Image src={images[index].url} alt={images[index].description} width={500} height={500} />
+          ) : null}
+        </React.Fragment>
+      ));
 
     console.log(data)
 
@@ -43,30 +60,14 @@ const Page = async ({ params,}:{ params: {slug: string} }) => {
                 </p>
             </div>
 
-            {/* <ArticleRenderer 
-                articleContent={data.articleContent.json}
-            /> */}
-
+            <div className='flex flex-col items-center justify-center pt-16'>
+                <div className='w-1/2'>
+                    {renderContent()}
+                </div>
+            </div>
         </div>
 
-
         <PressPostCarousel />
-
-        
-
-
-
-        {/* <Image
-            src={data.primaryImageLandscape.url}
-            alt={data.primaryImageLandscape.description}
-            sizes="100vw"
-            style={{
-                width: '100%',
-                height: 'auto',
-            }}
-            width={500}
-            height={300}
-        /> */}
     </div>
   )
 }

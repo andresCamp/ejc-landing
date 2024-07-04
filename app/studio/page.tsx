@@ -6,6 +6,7 @@ import LandscapeFeatureSection from '@/components/LandscapeFeatureSection';
 import ProjectLandscapeFeature from '@/components/project/ProjectLandscapeFeature';
 import NavBar from '../(home)/components/NavBar';
 import Image from 'next/image';
+import SimpleImageTile from '@/components/SimpleImageTile';
 
 const page = async () => {
 
@@ -22,14 +23,6 @@ const page = async () => {
       description={member.primaryImagePortrait.description}
     />
   )
-  // const teamMembers = <div className='grid grid-cols-3'>{data.teamMembersCollection.items.map((member) => 
-  //   <TeamCard
-  //     name={member.fullName}
-  //     title={member.title}
-  //     image={member.primaryImagePortrait.url}
-  //     description={member.primaryImagePortrait.description}
-  //   />}</div>
-  // )
 
   const firstLine = <div className='grid grid-cols-3 gap-16'>
     <TeamCard
@@ -52,63 +45,61 @@ const page = async () => {
     />
   </div>
 
-
-console.log(firstLine.props.children[0].props)
-  
-
   return (
-    <div className='flex flex-col items-center px-48'>
+    <div>
       <NavBar  white={false}/>
 
-      <h3 className='text-4xl font-questrial font-light text-tertiary pt-64 tracking-wider'>
-        {data.headline}
-      </h3>
+      <div className=" sticky top-0  transform rotate-90 origin-bottom-left ml-2">
+          <p className="text-5xl font-questrial">The Studio</p>
+      </div>
 
-      {/* <ProjectLandscapeFeature
-        img={data.primaryImageLandscape.url}
-        description={data.primaryImageLandscape.description}
-      /> */}
-
-        <Image
-          src={data.primaryImageLandscape.url}
-          alt={data.primaryImageLandscape.description}
-          sizes="100vw"
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-          width={500}
-          height={300}
-          className='py-24'
-        />
-      
-      <p className='font-questrial text-tertiary text-lg leading-10'>
-        {data.studioDescription}
-      </p>
+      <div className='flex flex-col items-center px-48'>
 
 
-      <div className='flex flex-row items-center justify-start gap-12 py-24'>
-        <div className='w-1/3'>
-          <TeamCard
-            name={data.leadArchitect.fullName}
-            title={data.leadArchitect.title}
-            image={data.leadArchitect.primaryImagePortrait.url}
-            description={data.leadArchitect.primaryImagePortrait.description}
+
+        <h3 className='text-4xl font-questrial font-light text-tertiary pt-36 tracking-wider'>
+          {data.headline}
+        </h3>
+
+          <SimpleImageTile
+            img={data.primaryImageLandscape.url}
+            hoverImg={data.primaryImageLandscapeHover.url}
+            description={data.primaryImageLandscape.description}
+            hoverDescription={data.primaryImageLandscapeHover.description}
+            width={2000}
+            height={300}
           />
+
+        
+        <p className='font-questrial text-tertiary text-lg leading-10'>
+          {data.studioDescription}
+        </p>
+
+
+        <div className='flex flex-row items-center justify-start gap-12 py-24'>
+          <div className='w-1/3'>
+            <TeamCard
+              name={data.leadArchitect.fullName}
+              title={data.leadArchitect.title}
+              image={data.leadArchitect.primaryImagePortrait.url}
+              description={data.leadArchitect.primaryImagePortrait.description}
+            />
+          </div>
+
+          <p className='px-16 text-lg leading-10 text-tertiary w-2/3'>{data.leadArchitectDescription}</p>
         </div>
 
-        <p className='px-16 text-lg leading-10 text-tertiary w-2/3'>{data.leadArchitectDescription}</p>
-      </div>
 
-
-      <div className='mb-16 w-full'>
-        {firstLine}
-        <div className='grid grid-cols-3 gap-16'>
-          {teamMembers}
-        </div>
-     
-      </div>
+        {/* <div className='mb-16 w-full'>
+          {firstLine}
+          <div className='grid grid-cols-3 gap-16'>
+            {teamMembers}
+          </div>
       
+        </div> */}
+        
+      </div>
+
     </div>
   )
 }

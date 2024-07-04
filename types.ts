@@ -21,15 +21,24 @@ interface TeamMembersCollection {
   items: TeamMember[];
 }
 
-interface ArticleContent {
+export interface ArticleContent {
     json: string;
-  }
+}
+
+export interface HeroImagesCollection {
+    items: ContentfulImage[];
+}
+
+export interface PostImagesCollection {
+    items: ContentfulImage[];
+}
 
 export interface Homepage {
     title: string;
     heading: string;
     philosophyQuote: string;
     heroImage: ContentfulImage;
+    heroImagesCollection: HeroImagesCollection[];
     featuredProject1: ProjectData;
     featuredProject2: ProjectData;
     featuredProject3: ProjectData;
@@ -37,6 +46,7 @@ export interface Homepage {
     commercialProjectsCover: ContentfulImage;
     residentialProjectsCover: ContentfulImage;
     studioImageSquare: ContentfulImage;
+    studioImageSquareHover: ContentfulImage;
     studioDescription: string;
 };
 
@@ -52,6 +62,7 @@ export interface StudioPage {
     teamMembersCollection: TeamMembersCollection;
     primaryImageSquare: ContentfulImage;
     primaryImageLandscape: ContentfulImage;
+    primaryImageLandscapeHover: ContentfulImage;
 }
 
 
@@ -70,6 +81,12 @@ export interface PressPost {
     articleContent: ArticleContent;
     primaryImageLandscape: ContentfulImage;
     primaryImagePortrait: ContentfulImage;
+    paragraph1: string;
+    paragraph2: string;
+    paragraph3: string;
+    paragraph4: string;
+    paragraph5: string;
+    postImagesCollection: PostImagesCollection;
 }
 
 export interface Project  {

@@ -14,23 +14,10 @@ export const metadata: Metadata = {
   
 
 const Page: React.FC = async () => {
-//   const { data, loading, error } = useFetchData<Project[]>(getResidentialProjects);
 
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
+  const residentialProjectsData: Promise<Project[]> = getResidentialProjects();
 
-//   if (error) {
-//     return <div>Error loading data: {error.message}</div>;
-//   }
-
-//   if (!data) {
-//     return <div>No data available</div>;
-//   }
-
-    const residentialProjectsData: Promise<Project[]> = getResidentialProjects();
-
-    const data = await residentialProjectsData
+  const data = await residentialProjectsData
 
   const renderSections = () => {
     const sections = [];
@@ -94,15 +81,16 @@ const Page: React.FC = async () => {
     return sections;
   };
   
-
-
-
-  // Render your component with data
   return (
     <div>
       <NavBar
         white={false}
       />
+
+      <div className="sticky top-0 transform rotate-90 origin-bottom-left ml-2">
+          <p className="text-5xl font-questrial">Residential Projects</p>
+      </div>
+
       {renderSections()}
 
     </div>

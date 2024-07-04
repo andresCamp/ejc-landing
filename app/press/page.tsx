@@ -11,7 +11,7 @@ const page = async () => {
 
     const data = await pressPosts
 
-    // console.log(data)
+    console.log(data)
 
     // const tiles = () => {
     //     <PressTile
@@ -35,8 +35,12 @@ const page = async () => {
   return (
     <div className='h-screen text-black'>
         <NavBar white={false}/>
+        
+        <div className=" sticky top-0  transform rotate-90 origin-bottom-left ml-2">
+          <p className="text-5xl font-questrial">Press</p>
+        </div>
 
-        <div className='grid grid-cols-3 gap-4 px-48 py-48'>
+        <div className='grid grid-cols-3 gap-4 px-48 py-36'>
             {data.map((post, index) => (
                 <PressTile
                     key={index}

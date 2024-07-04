@@ -12,13 +12,16 @@ const page = async () => {
 
     const data = await shoppageData
 
-    console.log(data)
+    // console.log(data)
 
   return (
-    <div className='flex flex-col gap-12 mb-32'>
+    <div className='flex flex-col mb-32'>
       <NavBar white={false} />
+      <div className=" sticky top-0  transform rotate-90 origin-bottom-left ml-2">
+          <p className="text-5xl font-questrial">Our Shop</p>
+        </div>
 
-      <div className='flex flex-row px-48 pt-60 items-center justify-center gap-32'>
+      <div className='flex flex-row px-48 pt-36 items-center justify-center gap-32'>
         <p className='leading-10 font-questrial text-lg text-tertiary'>
           {data.shopDescription}
         </p>

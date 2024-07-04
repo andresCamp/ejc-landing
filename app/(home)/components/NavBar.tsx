@@ -23,7 +23,7 @@ const NavBar: React.FC<NavBarProps> = ({ white }) => {
   return (
     <nav className={`flex md:flex-row relative flex-col w-screen px-4 md:px-24 py-4 md:py-8 justify-between md:items-center ${white ? 'text-white' : 'text-black'} z-50`}>
       <div className='md:hidden flex justify-center mb-4'>
-        <Link href="/" className='hover:scale-95 transition-scale duration-500'>
+        <Link href="/" className='hover:scale-105 transition-scale duration-500'>
           <h2 className='text-3xl font-light font-syne tracking-wide'>Estudio Jorge Campos</h2>
         </Link>
       </div>
@@ -35,7 +35,7 @@ const NavBar: React.FC<NavBarProps> = ({ white }) => {
         ))}
       </div>
       <div className='md:flex hidden'>
-        <Link href="/" className='hover:scale-95 transition-scale duration-500'>
+        <Link href="/" className='hover:scale-105 transition-scale duration-500'>
           <h2 className='text-4xl font-light font-syne tracking-wide'>Estudio Jorge Campos</h2>
         </Link>
       </div>

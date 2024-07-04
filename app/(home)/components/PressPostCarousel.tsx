@@ -17,26 +17,14 @@ const PressPostCarousel = async () => {
     const data = await pressPostsData
 
 
-    console.log(data)
+    // console.log(data)
 
   return (
     <div className='sm:px-48 pt-32 pb-16 flex flex-col gap-8 justify-center items-center'>
             
         {/* <h3 className=' font-medium text-xl'>@ESTUDIOJORGECAMPOS</h3> */}
 
-        <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 '>
-            
-            {/* {data.map( (post: PressPost, id: number) => (
-                <PressTile
-                    key={id}
-                    img={post.primaryImagePortrait.url}
-                    alt={post.primaryImagePortrait.description}
-                    title={post.title}
-                    slug={post.slug}
-                    date={post.publishDate}
-                />            
-            ))} */}
-
+        <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
             {data.map((post, index) => (
                 <PressTile
                     key={index}

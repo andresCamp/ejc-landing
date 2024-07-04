@@ -19,21 +19,6 @@ const Page: React.FC = async () => {
 
   const data = await commercialProjectsData
 
-
-  // const { data, loading, error } = useFetchData<Project[]>(getCommercialProjects);
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error loading data: {error.message}</div>;
-  // }
-
-  // if (!data) {
-  //   return <div>No data available</div>;
-  // }
-
   const renderSections = () => {
     const sections = [];
     let isPortraitNext = true;
@@ -105,7 +90,12 @@ const Page: React.FC = async () => {
       <NavBar
         white={false}
       />
-      {renderSections()}
+
+      <div className="sticky top-0 transform rotate-90 origin-bottom-left ml-2">
+          <p className="text-5xl font-questrial">Commercial Projects</p>
+      </div>
+
+      {renderSections()} 
 
     </div>
   );

@@ -1,3 +1,5 @@
+'use server'
+
 import { createClient } from "contentful"
 import { ContentfulImage, Homepage, OurShopPage, PressPost, Project, StudioPage } from "./types";
 
@@ -34,6 +36,13 @@ export const getHomepage = async (): Promise<Homepage> => {
           url
           description
         }
+        heroImagesCollection {
+          items {
+            url
+            description
+            title
+          }
+        }
         featuredProject1 {
           sys {
             id
@@ -63,6 +72,10 @@ export const getHomepage = async (): Promise<Homepage> => {
           description
         }
         studioImageSquare {
+          url
+          description
+        }
+        studioImageSquareHover {
           url
           description
         }
@@ -129,6 +142,10 @@ export const getStudioPage = async (): Promise<StudioPage> => {
         description
       }
       primaryImageLandscape{
+        url
+        description
+      }
+      primaryImageLandscapeHover{
         url
         description
       }
@@ -376,9 +393,6 @@ export const getPressPostBySlug = async (slug: string): Promise<PressPost> => {
         title
         slug
         publishDate
-        articleContent {
-          json
-        }
         primaryImageLandscape {
           url
           description
@@ -387,9 +401,22 @@ export const getPressPostBySlug = async (slug: string): Promise<PressPost> => {
           url
           description
         }
+        paragraph1
+        paragraph2
+        paragraph3
+        paragraph4
+        paragraph5
+        postImagesCollection {
+          items {
+            url
+            description
+          }
+        }
       }
     }
   }`;
+
+
   const res = await fetchContentfulData(query);
   const pressPost: PressPost = res.data.pressPostCollection.items[0] || [];
   return pressPost;
