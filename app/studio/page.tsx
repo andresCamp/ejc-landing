@@ -7,6 +7,7 @@ import ProjectLandscapeFeature from '@/components/project/ProjectLandscapeFeatur
 import NavBar from '../(home)/components/NavBar';
 import Image from 'next/image';
 import SimpleImageTile from '@/components/SimpleImageTile';
+import PageTitle from '@/components/PageTitle';
 
 const page = async () => {
 
@@ -49,9 +50,7 @@ const page = async () => {
     <div>
       <NavBar  white={false}/>
 
-      <div className=" sticky top-0  transform rotate-90 origin-bottom-left ml-2">
-          <p className="text-5xl font-questrial">The Studio</p>
-      </div>
+      <PageTitle title='The Studio'/>
 
       <div className='flex flex-col items-center px-48'>
 

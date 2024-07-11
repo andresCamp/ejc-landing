@@ -4,6 +4,7 @@ import React from 'react'
 import PressTile from './components/PressTile'
 import { PressPost } from '@/types'
 import NavBar from '../(home)/components/NavBar'
+import PageTitle from '@/components/PageTitle'
 
 const page = async () => {
 
@@ -34,24 +35,22 @@ const page = async () => {
 
   return (
     <div className='h-screen text-black'>
-        <NavBar white={false}/>
-        
-        <div className=" sticky top-0  transform rotate-90 origin-bottom-left ml-2">
-          <p className="text-5xl font-questrial">Press</p>
-        </div>
+      <NavBar white={false}/>
 
-        <div className='grid grid-cols-3 gap-4 px-48 py-36'>
-            {data.map((post, index) => (
-                <PressTile
-                    key={index}
-                    slug={post.slug}
-                    title={post.title}
-                    date={post.publishDate}
-                    img={post.primaryImagePortrait.url}
-                    alt={post.primaryImagePortrait.description}
-                />
-            ))}
-        </div>
+      <PageTitle title='Press'/>
+
+      <div className='grid grid-cols-3 gap-4 px-48 py-36'>
+          {data.map((post, index) => (
+              <PressTile
+                  key={index}
+                  slug={post.slug}
+                  title={post.title}
+                  date={post.publishDate}
+                  img={post.primaryImagePortrait.url}
+                  alt={post.primaryImagePortrait.description}
+              />
+          ))}
+      </div>
 
     </div>
   )

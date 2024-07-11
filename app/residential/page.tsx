@@ -6,6 +6,7 @@ import NavBar from '../(home)/components/NavBar';
 import PortraitFeatureSection from '@/components/PortraitFeatureSection';
 import LandscapeFeatureSection from '@/components/LandscapeFeatureSection';
 import { Metadata } from 'next';
+import PageTitle from '@/components/PageTitle';
 
 
 export const metadata: Metadata = {
@@ -87,9 +88,7 @@ const Page: React.FC = async () => {
         white={false}
       />
 
-      <div className="sticky top-0 transform rotate-90 origin-bottom-left ml-2">
-          <p className="text-5xl font-questrial">Residential Projects</p>
-      </div>
+      <PageTitle title='Residential Projects'/>
 
       {renderSections()}
 

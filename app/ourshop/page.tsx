@@ -5,6 +5,7 @@ import React from 'react'
 import NavBar from '../(home)/components/NavBar';
 import Image from 'next/image';
 import InterestForm from './components/InterestForm';
+import PageTitle from '@/components/PageTitle';
 
 const page = async () => {
 
@@ -17,9 +18,9 @@ const page = async () => {
   return (
     <div className='flex flex-col mb-32'>
       <NavBar white={false} />
-      <div className=" sticky top-0  transform rotate-90 origin-bottom-left ml-2">
-          <p className="text-5xl font-questrial">Our Shop</p>
-        </div>
+
+      <PageTitle title='Our Shop'/>
+
 
       <div className='flex flex-row px-48 pt-36 items-center justify-center gap-32'>
         <p className='leading-10 font-questrial text-lg text-tertiary'>
