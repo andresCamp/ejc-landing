@@ -71,7 +71,7 @@ const page = async () => {
           />
 
         
-        <p className={`${questrial.className} text-tertiary text-pretty text-xl lg:text-xl pt-3 `}>
+        <p className={`${questrial.className} text-tertiary text-pretty text-xl lg:text-xl pt-3`}>
           {data.studioDescription}
         </p>
 
