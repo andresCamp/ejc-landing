@@ -28,8 +28,8 @@ const PortraitFeatureSection: React.FC<PortraitFeatureSectionProps> = ({
   img2, hoverImg2, slug2, description2, hoverDescription2, title2, subtitle2, location2, type2
 }) => {
   return (
-      <div className='flex items-start justify-between py-36 px-48'>
-          <div className='w-2/5'>
+      <div className='flex items-start justify-between py-12 lg:py-36 px-16 lg:px-48'>
+          <div className='w-full lg:w-2/5'>
               <ImageTile 
                   img={img1}
                   hoverImg={hoverImg1}
@@ -44,7 +44,7 @@ const PortraitFeatureSection: React.FC<PortraitFeatureSectionProps> = ({
           </div>
 
           { img2  &&( 
-          <div className='w-2/5'>
+          <div className='lg:w-2/5'>
               <ImageTile 
                   img={img2}
                   hoverImg={hoverImg2 || img2}

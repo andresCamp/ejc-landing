@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 interface ProjectDetailsProps {
     location: string
@@ -8,7 +8,7 @@ interface ProjectDetailsProps {
 
 const ProjectDetails: React.FC<ProjectDetailsProps> = ({location, subtitle, year}) => {
   return (
-    <div className='flex flex-row items-start justify-between px-48 py-36'>
+    <div className='flex flex-col lg:flex-row items-start gap-8 justify-between text-2xl lg:text-base px-6 lg:px-48 py-24'>
       <p>Project Specs</p>
       <div>
         <p>LOCATION</p>

@@ -11,7 +11,7 @@ interface TeamCardProps {
 
 const TeamCard: React.FC<TeamCardProps> = ({name, title, image, description}) => {
   return (
-    <div className='flex flex-col gap-1 pb-12'>
+    <div className='flex flex-col gap-1 lg:pb-12'>
 
 
         <Image
@@ -27,10 +27,10 @@ const TeamCard: React.FC<TeamCardProps> = ({name, title, image, description}) =>
         />
 
       <div className='flex flex-col gap-0 items-start'>
-        <p className=' text-xl font-syne tracking-wide'>
+        <p className='text-3xl lg:text-xl font-syne tracking-wide'>
           {name}
         </p>
-        <p className=' text-xs text-tertiary'>
+        <p className='text-lg lg:text-xs text-tertiary'>
           {title}
         </p>
 

@@ -8,6 +8,7 @@ import NavBar from '../(home)/components/NavBar';
 import Image from 'next/image';
 import SimpleImageTile from '@/components/SimpleImageTile';
 import PageTitle from '@/components/PageTitle';
+import { questrial } from '@/lib/fonts';
 
 const page = async () => {
 
@@ -47,16 +48,16 @@ const page = async () => {
   </div>
 
   return (
-    <div>
+    <div className='w-full overflow-x-clip'>
       <NavBar  white={false}/>
 
       <PageTitle title='The Studio'/>
 
-      <div className='flex flex-col items-center px-48'>
+      <div className='flex flex-col items-center px-16 lg:px-48'>
 
 
 
-        <h3 className='text-4xl font-questrial font-light text-tertiary pt-36 tracking-wider'>
+        <h3 className={`${questrial.className} text-4xl font-light text-tertiary pb-3 lg:pt-36 tracking-wider`}>
           {data.headline}
         </h3>
 
@@ -70,13 +71,13 @@ const page = async () => {
           />
 
         
-        <p className='font-questrial text-tertiary text-lg leading-10'>
+        <p className={`${questrial.className} text-tertiary text-pretty text-xl lg:text-xl pt-3 `}>
           {data.studioDescription}
         </p>
 
 
-        <div className='flex flex-row items-center justify-start gap-12 py-24'>
-          <div className='w-1/3'>
+        <div className='flex flex-col lg:flex-row items-center justify-start gap-6 lg:gap-12 py-12 lg:py-24'>
+          <div className='w-full lg:w-1/3'>
             <TeamCard
               name={data.leadArchitect.fullName}
               title={data.leadArchitect.title}
@@ -85,7 +86,7 @@ const page = async () => {
             />
           </div>
 
-          <p className='px-16 text-lg leading-10 text-tertiary w-2/3'>{data.leadArchitectDescription}</p>
+          <p className='lg:px-16 text-lg leading-10 text-tertiary w-full lg:w-2/3'>{data.leadArchitectDescription}</p>
         </div>
 
 

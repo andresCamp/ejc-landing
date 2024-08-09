@@ -2,6 +2,7 @@
 'use client'
 import React, { FormEvent, useState } from 'react';
 import Button from '../../../components/Button';
+import { questrial } from '@/lib/fonts';
 
 interface InterestFormProps {
   message: string;
@@ -23,7 +24,7 @@ const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
   };
 
   return (
-    <div className="relative font-questrial">
+    <div className={`relative ${questrial.className}`}>
       <h3 className="text-xs mb-2 font-syne text-[#979693]">{message}</h3>
       <form action="https://submit-form.com/6SIqjMcRG" onSubmit={handleSubmit} className="flex flex-row gap-4 h-full">
       <input type="hidden" name="_append" value="false" />

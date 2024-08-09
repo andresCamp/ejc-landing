@@ -5,7 +5,7 @@ import PageTitle from '@/components/PageTitle'
 
 const page = () => {
   return (
-    <div>
+    <div className='w-full overflow-x-clip mb-6'>
         <NavBar white={false} />
 
       <PageTitle title='Get in Touch'/>

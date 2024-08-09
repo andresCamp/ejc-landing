@@ -20,7 +20,7 @@ const PressPostCarousel = async () => {
     // console.log(data)
 
   return (
-    <div className='sm:px-48 pt-32 pb-16 flex flex-col gap-8 justify-center items-center'>
+    <div className='px-8 sm:px-48  pb-16 flex flex-col gap-8 justify-center items-center'>
             
         {/* <h3 className=' font-medium text-xl'>@ESTUDIOJORGECAMPOS</h3> */}
 

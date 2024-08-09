@@ -26,7 +26,7 @@ const Page = async ({ params,}:{ params: {slug: string} }) => {
     const data = await projectData
 
   return (
-    <div>
+    <div className='w-full overflow-hidden '>
         <ProjectHeroSection
             title={data.title}
             subtitle={data.subtitle}

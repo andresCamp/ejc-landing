@@ -11,46 +11,23 @@ interface ProjectPortraitFeaturesProps {
 
 const ProjectPortraitFeatures: React.FC<ProjectPortraitFeaturesProps> = ({img1, img1Description, img2, img2Description}) => {
   return (
-    <div className='flex items-start justify-between pt-36 px-48'>
-        <div className='w-2/5'>
-        <Image
-          src={img1}
-          alt={img1Description}
-          sizes="100vw"
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
-          width={500}
-          height={300}
-        />
-
-
+    <div className='flex items-start justify-between gap-6 lg:gap-24 pt-6 lg:pt-24 px-6 lg:px-48 '>
+        <div className=''>
+          <Image
+            src={img1}
+            alt={img1Description}
+            width={900}
+            height={900}
+          />
         </div>
 
-        <div className='w-2/5'>
-        <Image
-                    src={img2}
-                    alt={img2Description}
-                    sizes="100vw"
-                    style={{
-                      width: '100%',
-                      height: 'auto',
-                    }}
-                    width={500}
-                    height={300}
-                />
-        {/* <ImageTile 
-            img={img2}
-            hoverImg={img2}
-            slug='residential'
-            description={img2Description}
-            hoverDescription={img2Description}
-            title='Residential Projects'
-            subtitle='View'
-            location=''
-            type=''
-        /> */}
+        <div>
+          <Image
+              src={img2}
+              alt={img2Description}
+              width={900}
+              height={900}
+          />
         </div>
       
 

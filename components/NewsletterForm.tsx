@@ -3,15 +3,16 @@ import React, { FormEvent, useState } from 'react';
 import ButtonWhite from './ButtonWhite';
 import {newsletterSignUp} from '../lib/hubspot'
 import { useFormState } from 'react-dom';
+import { questrial } from '@/lib/fonts';
 
 
 const NewsletterForm = () => {
   const [message, formAction] = useFormState(newsletterSignUp, null)
 
   return (
-    <div className="relative font-questrial">
+    <div className={`${questrial.className} relative`}>
       <h3 className="text-xs mb-2 font-syne text-[#979693]">Sign up for our seasonal newsletter</h3>
-      <form action={formAction}  className="flex flex-row gap-4 h-full">
+      <form action={formAction}  className="flex flex-row gap-4 h-12 lg:h-full">
         <input type="email" id="email" name="email" placeholder="Email" required 
                className="w-64 text-black font-normal px-3" />
         <ButtonWhite text='SIGN UP' type="submit">Submit</ButtonWhite>

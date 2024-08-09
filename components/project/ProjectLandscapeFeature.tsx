@@ -14,7 +14,7 @@ const ProjectLandscapeFeature: React.FC<ProjectLandscapeFeatureProps> = ({img, d
   // console.log(type)
   
   return (
-    <div className='pt-36 px-48'>
+    <div className='pt-6 lg:pt-24 px-6 lg:px-48'>
          <Image
           src={img}
           alt={description}

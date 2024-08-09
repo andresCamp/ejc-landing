@@ -83,7 +83,7 @@ const Page: React.FC = async () => {
   };
   
   return (
-    <div>
+    <div className='mb-12'>
       <NavBar
         white={false}
       />

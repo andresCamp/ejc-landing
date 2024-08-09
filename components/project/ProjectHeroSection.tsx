@@ -31,7 +31,7 @@ const ProjectHeroSection: React.FC<ProjectHeroSectionProps> = ({title, subtitle,
     />
   </div>
 
-  <div className='z-50 flex justify-between items-end font-light text-xl p-12 text-white'>
+  <div className='z-50 flex justify-between items-center lg:items-end font-light text-xl p-4 lg:p-12 text-white'>
     <div>
       <p className='uppercase tracking-widest'>{title}</p>
       <p className='text-sm tracking-wide text-stone-100'>{subtitle}</p>

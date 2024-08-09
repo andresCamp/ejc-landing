@@ -34,10 +34,8 @@ const Page = async () => {
 
 
 return (
-  <div className='h-full'>
+  <div className='h-full w-full overflow-x-clip '>
       <HeroSection images={data.heroImagesCollection}/>
-      {/* <HeroSection images={data.heroImagesCollection} url={data.heroImage.url} desc={data.heroImage.description}/> */}
-
 
       <HeaderSection text={data.heading}/>
 
@@ -52,20 +50,6 @@ return (
         location={featuredProject1.projectLocation}
         type={featuredProject1.projectType}
       />
-    
-
-      {/* <div className=''>
-        <ImageTile 
-          img={featuredProjects![0].portraitCover.url}
-          hoverImg={featuredProjects![0].landscapeFeature1.url}
-          slug={featuredProjects![0].slug}
-          description={featuredProjects![0].portraitCover.description}
-          hoverDescription={featuredProjects![0].portraitFeature1.description}
-          title={featuredProjects![0].title}
-          subtitle={featuredProjects![0].subtitle}
-          location={featuredProjects![0].projectLocation}
-        />
-      </div> */}
 
       <ProjectsSelection
         img1={data.commercialProjectsCover.url}
@@ -86,20 +70,9 @@ return (
         type={featuredProject2.projectType}
       />
 
-    
-
-
-
-      {/* <Button/> */}
-
-
-
-
       <QuoteSection text={data.philosophyQuote}/>
 
-
       <ProjectCarousel />
-
 
       <AboutStudioSection
         img={data.studioImageSquare.url}
@@ -109,18 +82,7 @@ return (
         description={data.studioDescription}
       />
 
-
       <PressPostCarousel />
-
-
-      {/* <div className='flex flex-col justify-between items-start py-56 px-8 sm:px-32 gap-4 bg-black font-syne text-8xl text-white'>
-        <h2>10 years</h2>
-        <h2>building spaces</h2>
-        <h2>that tell a story</h2>
-      </div> */}
-
-
-
 
     </div>
   );
