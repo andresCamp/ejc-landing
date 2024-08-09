@@ -65,7 +65,7 @@ const Page = async ({ params,}:{ params: {slug: string} }) => {
             </div>
         </div>
 
-        <PressPostCarousel />
+        {/* <PressPostCarousel /> */}
     </div>
   )
 }
