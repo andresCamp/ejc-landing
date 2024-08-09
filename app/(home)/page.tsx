@@ -1,14 +1,9 @@
-// 'use client'
-import Image from 'next/image'
 import HeroSection from './components/HeroSection'
 import { getHomepage, getProject } from '@/contentful'
-// import { useEffect, useState } from 'react'
 import { Homepage, Project } from '@/types'
 import HeaderSection from './components/HeaderSection'
 import QuoteSection from './components/QuoteSection'
 import ProjectsSelection from './components/ProjectsSelection'
-import ImageTile from '@/components/ImageTile'
-import Button from '@/components/Button'
 import AboutStudioSection from './components/AboutStudioSection'
 import ProjectCarousel from './components/ProjectCarousel'
 import LandscapeFeatureSection from '@/components/LandscapeFeatureSection'
@@ -82,7 +77,7 @@ return (
         description={data.studioDescription}
       />
 
-      <PressPostCarousel />
+      {/* <PressPostCarousel /> */}
 
     </div>
   );

@@ -21,10 +21,6 @@ interface TeamMembersCollection {
   items: TeamMember[];
 }
 
-export interface ArticleContent {
-    json: string;
-}
-
 export interface HeroImagesCollection {
     items: ContentfulImage[];
 }
@@ -78,7 +74,6 @@ export interface PressPost {
     title: string;
     slug: string;
     publishDate: string; // assuming publishDate is a string, change type if needed
-    articleContent: ArticleContent;
     primaryImageLandscape: ContentfulImage;
     primaryImagePortrait: ContentfulImage;
     paragraph1: string;
