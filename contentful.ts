@@ -19,6 +19,9 @@ const fetchContentfulData = async (query: string): Promise<any> => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ query }),
+      next: {
+        revalidate: 3600 
+      }
     }
   );
   const data = res.json();

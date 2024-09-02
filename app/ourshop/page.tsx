@@ -31,11 +31,6 @@ const page = async () => {
         <Image
             src={data.primaryImageSquare.url}
             alt={data.primaryImageSquare.description}
-            sizes="100vw"
-            style={{
-              width: '100%',
-              height: 'auto',
-            }}
             width={500}
             height={300}
             className='w-full lg:w-1/2'
