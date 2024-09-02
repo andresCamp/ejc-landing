@@ -11,7 +11,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({text}) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className='flex flex-col h-full items-center px-8  justify-center py-48 group'
+    <div className='flex flex-col h-full w-full items-center px-8  justify-center py-48 group'
          onMouseEnter={() => setHovered(true)}>
       <div className='relative'>
         <h1 className={`${questrial.className} text-6xl sm:text-5xl mb-5 text-tertiary tracking-wider`}>

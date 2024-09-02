@@ -152,6 +152,12 @@ export const getStudioPage = async (): Promise<StudioPage> => {
         url
         description
       }
+       clientsCollection {
+        items {
+          url
+          description
+        }
+      }
     }
     }`
 

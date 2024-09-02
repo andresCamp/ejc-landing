@@ -16,7 +16,7 @@
     "contentful": "^10.6.10",
     "embla-carousel-react": "^8.1.6",
     "lucide-react": "^0.407.0",
-    "next": "^14.0.4",
+    "next": "^14.2.7",
     "react": "^18",
     "react-dom": "^18",
     "react-hubspot-form": "^1.3.7",

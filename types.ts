@@ -21,6 +21,10 @@ interface TeamMembersCollection {
   items: TeamMember[];
 }
 
+interface ClientsCollection {
+    items: ContentfulImage[];
+  };
+
 export interface HeroImagesCollection {
     items: ContentfulImage[];
 }
@@ -59,6 +63,7 @@ export interface StudioPage {
     primaryImageSquare: ContentfulImage;
     primaryImageLandscape: ContentfulImage;
     primaryImageLandscapeHover: ContentfulImage;
+    clientsCollection: ClientsCollection;
 }
 
 

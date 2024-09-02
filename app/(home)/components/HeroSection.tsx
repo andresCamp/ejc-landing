@@ -22,7 +22,7 @@ const HeroSection: React.FC<{ images: any }> = ({ images }) => {
   }, [images.items.length]);
 
   return (
-    <div className='h-screen bg-black relative'>  {/* Ensure the container is relative */}
+    <div className='h-screen w-full bg-black relative'>  {/* Ensure the container is relative */}
       <NavBar white={true} />
       <div className='z-0'>
         {images.items.length > 0 && (

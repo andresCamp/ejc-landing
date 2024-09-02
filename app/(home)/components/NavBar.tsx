@@ -22,7 +22,7 @@ const NavBar: React.FC<NavBarProps> = ({ white }) => {
   ];
 
   return (
-    <nav className={`flex xl:flex-row relative flex-col w-screen px-4 xl:px-24 py-4 xl:py-8 justify-between xl:items-center ${white ? 'text-white' : 'text-black'} z-50`}>
+    <nav className={`flex xl:flex-row relative  flex-col w-screen px-4 xl:px-24 py-4 xl:py-8 justify-between xl:items-center ${white ? 'text-white' : 'text-black'} z-50`}>
       <div className='xl:hidden flex justify-center mb-4'>
         <Link href="/" className='hover:opacity-50 transition-all duration-500'>
           <h2 className='text-3xl font-light font-syne tracking-wide'>Estudio Jorge Campos</h2>

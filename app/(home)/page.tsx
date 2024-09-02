@@ -29,7 +29,7 @@ const Page = async () => {
 
 
 return (
-  <div className='h-full w-full overflow-x-clip '>
+  <div className='h-full  w-full'>
       <HeroSection images={data.heroImagesCollection}/>
 
       <HeaderSection text={data.heading}/>
