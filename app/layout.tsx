@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${syne.className}`}>
+      <body className={`${syne.className} overflow-x-clip`}>
         {/* <NavBar white={false} /> */}
         {children}
         <Footer />
