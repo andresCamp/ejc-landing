@@ -17,41 +17,8 @@ const page = async () => {
 
   const data = await studiopageData
 
-  // console.log(data.clientsCollection.items)
-
-  // const teamMembers = data.teamMembersCollection.items.map((member, index) => 
-  //   <TeamCard
-  //     key={index}
-  //     name={member.fullName}
-  //     title={member.title}
-  //     image={member.primaryImagePortrait.url}
-  //     description={member.primaryImagePortrait.description}
-  //   />
-  // )
-
-  // const firstLine = <div className='grid grid-cols-3 gap-16'>
-  //   <TeamCard
-  //     name={data.teamMemberFeature1.fullName}
-  //     title={data.teamMemberFeature1.title}
-  //     image={data.teamMemberFeature1.primaryImagePortrait.url}
-  //     description={data.teamMemberFeature1.primaryImagePortrait.description}
-  //   />
-  //   <TeamCard
-  //     name={data.teamMemberFeature2.fullName}
-  //     title={data.teamMemberFeature2.title}
-  //     image={data.teamMemberFeature2.primaryImagePortrait.url}
-  //     description={data.teamMemberFeature2.primaryImagePortrait.description}
-  //   />
-  //   <TeamCard
-  //     name={data.teamMemberFeature3.fullName}
-  //     title={data.teamMemberFeature3.title}
-  //     image={data.teamMemberFeature3.primaryImagePortrait.url}
-  //     description={data.teamMemberFeature3.primaryImagePortrait.description}
-  //   />
-  // </div>
-
   return (
-    <div className='w-full overflow-x-clip'>
+    <div className='w-full overflow-x-clip '>
       <NavBar  white={false}/>
 
       <PageTitle title='The Studio'/>
@@ -77,7 +44,7 @@ const page = async () => {
         </p>
 
         {data.clientsCollection && data.clientsCollection && data.clientsCollection.items && (
-          <div className="flex flex-col items-center justify-center py-16">
+          <div className="flex flex-col gap-8 items-center  justify-center py-16">
             <p className='text-2xl md:text-4xl'>Our Valued Clients</p>
             <LogoGrid logos={data.clientsCollection.items} />
           </div>

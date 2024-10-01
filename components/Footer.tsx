@@ -9,8 +9,8 @@ import NewsletterForm from './NewsletterForm'
 
 const Footer = () => {
   return (
-    <div className='h-screen w-full flex flex-col justify-end'>
-      <div className='flex flex-col  items-start justify-center z-50 h-full  px-8 sm:px-32 gap-4 bg-black font-syne text-6xl lg:text-8xl text-white'>
+    <div className='h-full w-full flex flex-col justify-end'>
+      <div className='flex flex-col  items-start justify-center z-50 h-full py-8 px-8 sm:px-32 gap-4 bg-black font-syne text-6xl lg:text-8xl text-white'>
         <h2>10 years</h2>
         <h2>building spaces</h2>
         <h2>that tell a story</h2>
