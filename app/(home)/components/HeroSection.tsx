@@ -37,6 +37,8 @@ const HeroSection: React.FC<{ images: any }> = ({ images }) => {
               }}    
               className='z-0'
             />
+            <div className="absolute top-0 left-0 right-0 opacity-40 h-48 bg-gradient-to-b from-black to-transparent z-10"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-48 opacity-40 bg-gradient-to-t from-black to-transparent z-10"></div>
             <p className={`absolute bottom-0 right-0 m-7 text-white z-50 text-base md:text-xl`}>
               {images.items[currentImageIndex].title}
             </p>  {/* Title displayed in the bottom right corner */}

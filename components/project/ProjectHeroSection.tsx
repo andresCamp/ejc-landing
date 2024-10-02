@@ -29,6 +29,8 @@ const ProjectHeroSection: React.FC<ProjectHeroSectionProps> = ({ title, subtitle
           className="object-cover"
           style={{ zIndex: 0 }} // Ensures the image is below other elements
         />
+            <div className="absolute top-0 left-0 right-0 opacity-40 h-48 bg-gradient-to-b from-black to-transparent z-10"></div>
+
       </div>
 
       {/* Bottom Section fixed to the bottom */}
