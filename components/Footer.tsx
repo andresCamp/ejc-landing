@@ -16,7 +16,7 @@ const Footer = () => {
         <h2>that tell a story</h2>
       </div>
 
-      <footer className='flex flex-col gap-8 bg-secondary text-[#E7E6E2] py-8 px-6 md:py-12 md:px-24'>
+      <footer className='flex flex-col z-50 gap-8 bg-secondary text-[#E7E6E2] py-8 px-6 md:py-12 md:px-24'>
         <div className='flex flex-col md:flex-row justify-between items-start gap-8'>
           <div className='flex flex-col gap-4'>
             <h2 className='text-base md:text-lg'>ESTUDIO JORGE CAMPOS</h2>

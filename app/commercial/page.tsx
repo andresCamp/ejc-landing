@@ -95,7 +95,7 @@ const Page: React.FC = async () => {
   };
 
   return (
-    <div className='min-h-screen w-full overflow-x-clip pb-12'>
+    <div className='min-h-screen w-full overflow-x-clip pb-20'>
       <NavBar white={false} />
       <PageTitle title='Commercial Projects' />
       {renderMobileLayout()}
